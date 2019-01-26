@@ -1,0 +1,46 @@
+1.a与b定义如下，下列哪个是正确的？B
+a = '123'
+b = '123'
+A.a != b
+B.a is b
+C.a == 123
+D.a + b = 246
+
+2.下列哪种函式参数定义不合法? D
+A.def myfunc(*args):
+B.def myfunc(arg1=1):
+C.def myfunc(*args, a=1):
+D.def myfunc(a=1, **args):
+
+3.下列代码执行结果是？B
+[i**i for i in range(3)]
+A.[1, 1, 4]
+B.[0, 1, 4]
+C.[1, 2, 3]
+D.(1, 1, 4)
+
+4.一个段代码定义如下，下列调用结果正确的是？A
+def bar(multiple):
+    def foo(n):
+        return multiple ** n
+    return foo
+A.??bar(2)(3) == 8
+B.??bar(2)(3) == 6
+C.??bar(3)(2) == 8
+D.??bar(3)(2) == 6
+
+5.下面代码运行结果？C
+a = 1
+try:
+??a += 1
+except:
+??a += 1
+else:
+??a += 1
+finally:
+??a += 1
+print(a)
+A.2
+B.3
+C.4
+D.5
