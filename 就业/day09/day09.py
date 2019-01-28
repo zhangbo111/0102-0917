@@ -1,36 +1,70 @@
-# # # 选择排序算法
-# # def select_sort(lst):
+# 选择排序算法
+# def select_sort(lst):
 # #     for i in range(len(lst) - 1):  # 只需要循环len(lst) - 1次
 # #         k = i
-# #         for j in range(i,len(lst)):   # k是已知最小元素的位置  这个循环就是把最小元素k找出来
+# #         for j in range(i, len(lst)):   # k是已知最小元素的位置  这个循环就是把最小元素k找出来
 # #             if lst[j] < lst[k]:
 # #                 k = j
 # #         if i != k:             # lst[k] 是确定的最小元素,检查是否需要交换
-# #             lst[i],lst[k] = lst[k],lst[i]
+# #             lst[i], lst[k] = lst[k], lst[i]
 # #     print(lst)
-# #
-# #
 # # select_sort([3, 2, 4, 1, 5])
-#
-#
-# # # 冒泡(交换)排序算法
-# # def bubble_sort(lst):
-# #     for i in range(len(lst)):
-# #         found = False
-# #         print(lst)
-# #         for j in range(1, len(lst) - i):
-# #             if lst[j-1] > lst[j]:
-# #                 lst[j-1], lst[j] = lst[j], lst[j-1]
-# #                 found = True
-# #         # print(lst)
-# #         if not found:
-# #             break
-# #     # print(lst)
-# #
-# #
-# # bubble_sort([30, 13, 25, 16, 47, 26, 19, 10])
-#
-#
+'''
+第一次: k = i = 0  k表示最小值的位置（索引）
+j = 0 --> 4
+lst[0] < lst[0]
+lst[1] < lst[0]  如果为True  k = 1
+lst[2] < lst[1]
+lst[3] < lst[1]  k = 3
+lst[4] < lst[3]  找到最小的数
+此时k = 3  i = 0
+交换位置 交换两者的位置
+lst[0], lst[3] = lst[3], lst[0]
+
+第二次：跟第一次类似
+选择排序是查找最小的数放在第一个位置，依次直到全部排完
+'''
+
+
+# 冒泡(交换)排序算法
+def bubble_sort(lst):
+    for i in range(len(lst)):
+        found = False
+        print(lst)
+        for j in range(1, len(lst) - i):
+            if lst[j-1] > lst[j]:
+                lst[j-1], lst[j] = lst[j], lst[j-1]
+                found = True
+            print(lst)
+        # print(lst)
+        if not found:
+            break
+    print(lst)
+bubble_sort([30, 13, 25, 16, 47, 26, 19, 10])
+'''
+第一次：i = 0 --> 7
+found = False
+j = 1 -->  7 - i = 7  2.当 i = 1     j = 1 --> 7 - 1 = 6 ... i = 6  j = 1 --> 1
+i = 0 
+j = 1
+lst[0] > lst[1]
+[30, 13, 25, 16, 47, 26, 19, 10]
+[13, 30, 25, 16, 47, 26, 19, 10]    found = True
+j = 2
+lst[1] > lst[2]
+[13, 25, 30, 16, 47, 26, 19, 10]
+[13, 25, 16, 30, 47, 26, 19, 10]
+[13, 25, 16, 30, 47, 26, 19, 10]
+[13, 25, 16, 30, 26, 47, 19, 10]
+[13, 25, 16, 30, 26, 19, 47, 10]
+[13, 25, 16, 30, 26, 19, 10, 47]
+
+冒泡排序：就是把最大的数通过交换位置放到最后面
+'''
+
+
+
+
 # # 快速排序 20世纪最具影响力的算法之一
 # def quick_sort(lst):
 #     qsort_rec(lst, 0, len(lst)-1)
@@ -65,6 +99,9 @@
 # # quick_sort([30,13,25,16,47,26,19,10])
 # quick_sort([4, 3, 5, 1, 2])
 #
+
+
+
 # 快速排序
 # 通过一趟排序将要排序的数据分割成独立的两部分
 # 其中一部分的所有数据都比另外一部分的所有数据都要小
