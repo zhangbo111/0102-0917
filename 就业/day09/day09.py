@@ -27,20 +27,20 @@ lst[0], lst[3] = lst[3], lst[0]
 
 
 # 冒泡(交换)排序算法
-def bubble_sort(lst):
-    for i in range(len(lst)):
-        found = False
-        print(lst)
-        for j in range(1, len(lst) - i):
-            if lst[j-1] > lst[j]:
-                lst[j-1], lst[j] = lst[j], lst[j-1]
-                found = True
-            print(lst)
-        # print(lst)
-        if not found:
-            break
-    print(lst)
-bubble_sort([30, 13, 25, 16, 47, 26, 19, 10])
+# def bubble_sort(lst):
+#     for i in range(len(lst)):
+#         found = False
+#         print(lst)
+#         for j in range(1, len(lst) - i):
+#             if lst[j-1] > lst[j]:
+#                 lst[j-1], lst[j] = lst[j], lst[j-1]
+#                 found = True
+#             print(lst)
+#         # print(lst)
+#         if not found:
+#             break
+#     print(lst)
+# bubble_sort([30, 13, 25, 16, 47, 26, 19, 10])
 '''
 第一次：i = 0 --> 7
 found = False
@@ -100,20 +100,16 @@ lst[1] > lst[2]
 # quick_sort([4, 3, 5, 1, 2])
 #
 
-
-
 # 快速排序
 # 通过一趟排序将要排序的数据分割成独立的两部分
 # 其中一部分的所有数据都比另外一部分的所有数据都要小
 # 然后再按此方法对这两部分数据分别进行快速排序
 # 整个排序过程可以递归进行
 # 以此达到整个数据变成有序序列。
-
-
 def first_sort(numbers, i, j):
     # i是第一个数的索引 j是最后一个数的索引
     # 初始i = 0   j = len(numbers) - 1
-    # 第一个数为temp
+    # 第一个数为temp 把第一个数存在temp
     temp = numbers[i]
     # 如果只有一个数字就不需要排序了 索引当列表长度大于1的时候下面就为True
     while i != j:
@@ -141,9 +137,21 @@ def quickSort(numbers, i, j):
         quickSort(numbers, i, middle-1)
         quickSort(numbers, middle+1, j)
 if __name__ == '__main__':
-    list1 = [2, 3, 5, 7, 8, 9, 6, 54, 1, 42]
+    list1 = [9, 3, 5, 7, 8, 2, 6, 54, 1, 42]
     print(list1)
     quickSort(list1, 0, len(list1)-1)
     print(list1)
+'''
+原理：
+[9, 3, 5, 7, 8, 2, 6, 54, 1, 42，18，12]
+以第一个数9为中心，大于9 放在右边
+小于9的放在左边
+[5，3, 1, 7, 8, 2, 6, 9, 18, 42，54，12]
+再在[5，3, 1, 7, 8, 2, 6 ]中选择5为标杆，小于5的放左边，大于5的放右边
+[18, 42，54，12] 以18为标杆 大于18的放右边，小于18的放左边
+[2, 3, 1, 5，7, 8, 6, 9, 12，18, 42，54]
 
+[1, 2, 3, 5，6，7, 8, 9, 12，18, 42，54]
 
+依此递归下去，直到排完
+'''
