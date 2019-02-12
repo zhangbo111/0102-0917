@@ -1,4 +1,9 @@
-# # # 选择排序算法
+# #
+# 5.选择排序：第1趟，在待排序记录r1 ~ r[n]中选出最小的记录，
+# 将它与r1交换；第2趟，在待排序记录r2 ~ r[n]中选出最小的记录，
+# 将它与r2交换；以此类推，第i趟在待排序记录r[i] ~ r[n]中选出最小的记录，
+# 将它与r[i]交换，使有序序列不断增长直到全部排序完毕
+#  选择排序算法
 # # def select_sort(lst):
 # #     for i in range(len(lst) - 1):  # 只需要循环len(lst) - 1次
 # #         k = i
@@ -12,7 +17,10 @@
 # #
 # # select_sort([3, 2, 4, 1, 5])
 #
-#
+# 3.冒泡排序：它重复地走访过要排序的数列，一次比较两个元素，
+# 如果他们的顺序错误就把他们交换过来。走访数列的工作是重复地进行直到没有再需要交换，
+# 也就是说该数列已经排序完成
+
 # # # 冒泡(交换)排序算法
 # # def bubble_sort(lst):
 # #     for i in range(len(lst)):
@@ -30,40 +38,6 @@
 # #
 # # bubble_sort([30, 13, 25, 16, 47, 26, 19, 10])
 #
-#
-# # 快速排序 20世纪最具影响力的算法之一
-# def quick_sort(lst):
-#     qsort_rec(lst, 0, len(lst)-1)
-#     # print(lst)
-#
-#
-# def qsort_rec(lst, l, r):
-#     if l >= r:
-#         return   # 分段无记录 或只有一个记录  只有一个数值的时候 下面就不进行了
-#     i = l
-#     j = r
-#     pivot = lst[i]  # 是初始空位
-#     while i < j:    # 找pivot的最终位置
-#         while i < j and lst[j] >= pivot:  # 最后一个和第一个进行比较  后面大则 进行下去
-#             j -= 1                   # 用j向左扫描小于pivot的记录
-#         if i < j:
-#             lst[i] = lst[j]
-#             i += 1                  # 小记录移动到左边
-#             print(lst)
-#         while i < j and lst[i] <= pivot:
-#             i += 1                     # 用i向右扫描找大于pivot的记录
-#         if i < j:
-#             lst[j] = lst[i]
-#             j -= 1                  # 大记录移到右边
-#             print(lst)
-#     lst[i] = pivot  # 将pivot存入其最终位置
-#     # print(lst)
-#     qsort_rec(lst, l, i-1)               # 递归处理左半区间
-#     qsort_rec(lst, i+1, r)                # 递归处理右半区间
-#
-#
-# # quick_sort([30,13,25,16,47,26,19,10])
-# quick_sort([4, 3, 5, 1, 2])
 #
 # 快速排序
 # 通过一趟排序将要排序的数据分割成独立的两部分
@@ -108,5 +82,3 @@ if __name__ == '__main__':
     print(list1)
     quickSort(list1, 0, len(list1)-1)
     print(list1)
-
-
